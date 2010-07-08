@@ -1,0 +1,46 @@
+defaultTasks "clean", "build"
+
+usePlugin "java"
+usePlugin "maven"
+usePlugin 'eclipse'
+usePlugin 'war'
+usePlugin 'jetty'
+
+sourceCompatibility = 1.6
+group = "com.appspot"
+version = "${version}"
+
+configurations {
+	compile {
+		transitive = true
+	}
+	compile.exclude module: "cglib-nodep"
+}
+
+processResources << {
+	copy{
+	 from new File('src/main/java')
+	 into new File('build/classes/main')
+	 exclude ('**/*.java')
+	}
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile			"com.google.inject:guice:2.0",
+					"com.google.inject.extensions:guice-servlet:2.0",
+					"org.apache.wicket:wicket-guice:1.4.9",
+					"org.slf4j:slf4j-jdk14:1.5.8"
+}
+
+sourceSets {
+	main {
+		resources {
+		    srcDir 'src/main/resources'
+	        srcDir 'src/main/webapp'
+        }
+	}
+}
