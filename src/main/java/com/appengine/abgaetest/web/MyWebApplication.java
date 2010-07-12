@@ -6,9 +6,12 @@ import org.apache.wicket.protocol.http.HttpSessionStore;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.session.ISessionStore;
 
-import com.appengine.abgaetest.web.page.HelloWorld;
+import com.appengine.abgaetest.dao.BlogDao;
+import com.appengine.abgaetest.dao.objectify.BlogDaoObjectify;
+import com.appengine.abgaetest.web.page.Blog;
 import com.google.inject.Binder;
 import com.google.inject.Module;
+import com.google.inject.Scopes;
 
 public class MyWebApplication extends WebApplication {
 
@@ -29,13 +32,13 @@ public class MyWebApplication extends WebApplication {
 	private Module getModule() {
 		return new Module() {
 			public void configure(Binder binder) {
-				// binder.bind(IService.class).to(Service.class);
+				binder.bind(BlogDao.class).to(BlogDaoObjectify.class).in(Scopes.SINGLETON);
 			}
 		};
 	}
 
 	@Override
 	public Class<? extends Page> getHomePage() {
-		return HelloWorld.class;
+		return Blog.class;
 	}
 }

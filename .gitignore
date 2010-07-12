@@ -2,3 +2,5 @@ build/
 .classpath
 .project
 .settings/
+sources/
+.classpath.old

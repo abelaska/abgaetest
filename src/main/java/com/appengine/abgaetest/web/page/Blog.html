@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+	<title>Experimental blog</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	<link rel="stylesheet" href="css/blog.css" type="text/css" media="all" />  
+</head> 
+<body> 
+	Prototype blog application using Gradle, Guice 2, Google AppEngine 1.3, Objectify 2.2, Wicket 1.4.
+	
+	<form wicket:id="blogForm" class="form"> 
+		<p class="name"> 
+			<input type="text" name="username" wicket:id="username" /> 
+			<label for="username">Username</label> 
+		</p> 
+  
+		<p class="text"> 
+			<textarea name="message" wicket:id="message"></textarea> 
+		</p> 
+ 
+		<p class="submit"> 
+			<input type="submit" value="Send" /> 
+		</p> 
+ 	</form> 
+ 
+	<span wicket:id="pager" class="pager">messages pager</span><br>
+	<span wicket:id="messages" id="messages">
+		<p>
+			<b><span wicket:id="username">username</span></b>
+			<br/>
+			<span wicket:id="message">message</span>
+			<br/>
+		</p>
+	</span>
+</body> 
+</html>
