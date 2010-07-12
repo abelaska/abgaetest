@@ -1,3 +1,21 @@
-Prototype application using Gradle 0.8+ & Guice 2.0 & Google AppEngine 1.3.5+ & Wicket 1.4.9+.
+Prototype application using Gradle 0.8+ & Guice 2.0+ & Google AppEngine 1.3.5+ & Objectify 2.2.1+ & Wicket 1.4.9+.
 
-Demo site http://abgaetest.appspot.com/ 
+Inspirace designu formulare http://nettuts.s3.amazonaws.com/584_form/demo.html.
+
+Demo site http://abgaetest.appspot.com/
+
+Postup kompilace v prikazove radce (v adresari build/libs bude vytvoren war archiv s aplikaci):
+$ gradle
+
+Priprava projektu pro import do vyvojoveho prostredi Eclipse:
+$ gradle src eclipse
+
+Nasazeni aplikace do Google App Engine:
+$ cd build/libs
+$ unzip abgaetest-*.war
+$ appcfg.sh update .
+ 
+Lokalni spusteni aplikace:
+$ cd build/libs
+$ unzip abgaetest-*.war
+$ dev_appserver.sh .
